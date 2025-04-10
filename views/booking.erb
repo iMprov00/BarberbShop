@@ -1,6 +1,21 @@
+	
+<h2> Укажите ваши данные, чтобы записаться на стрижку </h2> <br/>
 
-	<div style="grid-template-columns: 1fr 1fr;" class="col-3 p-3 mb-2">
-		<input class="form-control" type="text" placeholder="Ваше имя" aria-label="default input example">
-		<input class="form-control" type="phone" placeholder="Номер телефона" aria-label="default input example">
-		<input class="form-control" type="phone" placeholder="Номер телефона" aria-label="default input example">
+<form action="/booking" method="post">
+	<div class="col-md-4">
+
+	  	<i class="bi bi-person-circle me-2"></i> Ваше имя:
+		<input class="form-control mb-3" type="text" placeholder="Введите имя" aria-label="default input example" name="user_name">
+
+		<i class="bi bi-telephone me-2"></i> Ваш номер телефона:
+		<input class="form-control mb-3" type="tel" placeholder="Введите номер телефона" aria-label="default input example" name="user_phone">
+
+		<i class="bi bi-calendar me-2"></i> Дата записи:
+		<input type="date" class="form-control mb-3" id="appointmentDate" min="2025-04-10" name="date_zap" >
+
+		<input type="submit" value="Продолжить" onclick="window.location='/booking'" class="btn btn-primary mb-3"> <br/>
+
+		<%= @message %>
+
 	</div>
+</form>
