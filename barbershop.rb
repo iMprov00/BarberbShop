@@ -37,3 +37,9 @@ post '/booking' do
   erb :booking
 
 end
+
+get '/contacts' do
+
+  erb :contacts
+
+end
