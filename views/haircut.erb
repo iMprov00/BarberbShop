@@ -1,16 +1,57 @@
-<div class="container mt-4">
-  <h1>Наши стрижки</h1>
-  <div class="row">
-    <div class="col-md-4">
-      <h3>Классическая</h3>
-      <p>Аккуратная стрижка с четкими линиями</p>
-      <p>Цена: 1500 руб.</p>
+<form action="/haircut" method="POST">
+  <div class="container mt-3">
+    <h1>Наши стрижки</h1>
+    <div class="row">
+      <!-- Первая стрижка -->
+      <div class="col-md-3">
+        <h3>Классическая</h3>
+        <p>Аккуратная стрижка с четкими линиями</p>
+        <p>Цена: 1500 руб.</p>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="haircut_type" id="classic" value="Классическая">
+          <label class="form-check-label" for="classic">
+            Выберу эту
+          </label>
+        </div>
+      </div>
+      
+      <div class="col-md-2 d-flex">
+        <img src="images/classic_hair.jpg" class="img-fluid rounded" style="max-height: 200px;">
+      </div>
+
+      <!-- Вторая стрижка -->
+      <div class="col-md-3">
+        <h3>Модная</h3>
+        <p>Современные тенденции</p>
+        <p>Цена: 2000 руб.</p>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="haircut_type" id="modern" value="Модная">
+          <label class="form-check-label" for="modern">
+            Выберу эту
+          </label>
+        </div>
+      </div>
+      
+      <div class="col-md-2 d-flex">
+        <img src="images/moda_hair.jpg" class="img-fluid rounded" style="max-height: 200px;">
+      </div>
     </div>
-    <div class="col-md-4">
-      <h3>Модная</h3>
-      <p>Современные тенденции</p>
-      <p>Цена: 2000 руб.</p>
+
+    <!-- Выбор мастера -->
+    <div class="dropdown mt-3">
+      <select class="form-select" name="master">
+        <option selected disabled>Выбрать мастера</option>
+        <option value="Виталий">Виталий</option>
+        <option value="Евгений">Евгений</option>
+        <option value="Максим">Максим</option>
+      </select>
     </div>
+
+    <!-- Кнопка отправки -->
+    <button type="submit" class="btn btn-primary mt-3">Записаться</button>
+    
+    <% if @message %>
+      <div class="alert alert-info mt-3"><%= @message %></div>
+    <% end %>
   </div>
-  <a href="/booking" class="btn btn-primary mt-3">Записаться</a>
-</div>
+</form>
