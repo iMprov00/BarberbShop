@@ -17,7 +17,7 @@ post '/haircut' do
   $booking_data[:master] = params[:master]
   
   if $booking_data[:haircut_type].nil? || $booking_data[:master].nil? || $booking_data[:master].empty?
-    @message = "Пожалуйста, выберите тип стрижки и мастера!"
+    @error = "Пожалуйста, выберите тип стрижки и мастера!"
     erb :haircut
   else
     redirect '/booking' # Перенаправляем на форму бронирования
@@ -42,8 +42,9 @@ post '/booking' do
     timestamp: Time.now.strftime("%Y-%m-%d %H:%M")
   }
 
+
   if booking_details.values.any?(&:empty?)
-    @message = "Не все поля заполнены!"
+    @error = "Не все поля заполнены!"
     erb :booking
   else
     # Запись в единый файл
