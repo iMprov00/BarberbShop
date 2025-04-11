@@ -45,6 +45,9 @@
 
   <!-- Контент страницы -->
   <div class="container mt-4">
+    <%if @error then %>
+    <div class ="alert alert-danger"><%=@error%></div>
+    <%end%>
     <%= yield %> 
   </div>
 
